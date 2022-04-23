@@ -30,6 +30,9 @@ class QThread(threading.Thread):
     def shutdown(self, shutdown):
         self._shutdown = shutdown
 
+    def put(self, obj):
+        return self.q.put(obj)
+
     def stop(self):
         self.shutdown = True
         self.join()
