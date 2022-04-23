@@ -2,6 +2,7 @@
 import threading
 import queue
 import logging
+import time
 
 #logging.basicConfig(format="%(asctime)s [%(levelname)s] %(threadName)s: %(message)s", level=logging.INFO)
 
@@ -25,6 +26,10 @@ class QThread(threading.Thread):
     @property
     def shutdown(self):
         return self._shutdown
+
+    def wait(self):
+        while self.alive():
+            time.sleep(1)
 
     @shutdown.setter
     def shutdown(self, shutdown):
