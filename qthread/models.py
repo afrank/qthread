@@ -1,8 +1,17 @@
 
 class QObj:
-    def __init__(self, action="", **kwargs):
+    def __init__(self, route="default", action="", **kwargs):
+        self._route = route
         self._action = action
         self._args = kwargs
+
+    @property
+    def route(self):
+        return self._route
+
+    @route.setter
+    def route(self, route):
+        self._route = route
 
     @property
     def action(self):
